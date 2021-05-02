@@ -1,0 +1,338 @@
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+:root {
+  --primary-color: #c42424;
+  --white-color: #e8e8e8;
+}
+
+body {
+  font-family: Product Sans;
+  background: #E5E5E5;
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.container-modal {
+  padding: 33px;
+}
+
+.title-modal {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  margin-bottom: 34px;
+}
+
+.footer-modal {
+  margin-top: 20px;
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-modal, .btn-modal:hover, .btn-modal:active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  margin-top: 30px;
+  color: var(--white-color);
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary-color);
+  height: 80px;
+}
+
+.icon {
+  height: 45px;
+  width: 65px;
+}
+
+.btn {
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: Nunito;
+}
+
+.btn-fullwidth {
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: Nunito;
+  width: 100%;
+}
+
+.btn.btn-login {
+  background-color: transparent;
+  border: none;
+  color: var(--white-color);
+  width: 100px;
+  height: 40px;
+  font-weight: 800;
+  margin-right: 1rem;
+}
+
+.btn-login:hover {
+  border: 1px solid var(--white-color);
+}
+
+.btn.btn-register {
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  width: 100px;
+  height: 40px;
+  font-weight: 900;
+}
+
+.btn.btn-hero {
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  width: 177px;
+  height: 40px;
+  font-weight: 900;
+}
+
+.btn.btn-attachment, .btn.btn-attachment:hover, .btn.btn-attachment:active {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  width: 159px;
+  height: 45px;
+}
+
+.hero-section-top {
+  background-color: var(--primary-color);
+  height: 623px;
+}
+
+
+.hero-section-top > .hero-left > .hero-content > .hero-title {
+  color: var(--white-color);
+  margin-bottom: 36px;
+}
+
+.hero-text {
+  font-family: Nunito;
+}
+
+.hero-section-top > .hero-left > .hero-content > .hero-text {
+  color: var(--white-color);
+  margin-bottom: 58px;
+}
+
+@media (min-width: 768px) {
+  .navbar-container {
+    padding: 0 100px;
+  }
+  .hero-section-top > .hero-left {
+    padding-left: 165px;
+  }
+  .hero-section-top > .hero-right {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0;
+  }
+  .hero-section-bottom > .hero-left {
+    margin-top: -88px;
+    padding: 0;
+  }
+  .hero-section-top > .hero-left > .hero-content > .hero-title,
+  .hero-section-bottom > .hero-right > .hero-content {
+    width: 717px;
+  }
+  .hero-section-top > .hero-left > .hero-content > .hero-text {
+    width: 545px;
+  }
+}
+
+.hero-content {
+  margin-top: 71px;
+}
+
+.hero-section-bottom > .hero-right > .hero-content > .hero-title {
+  margin-bottom: 36px;
+}
+
+.hero-section-bottom > .hero-right > .hero-content {
+  margin-top: 148px;
+}
+
+.hero-title {
+  font-family: Product Sans;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 58px;
+  display: flex;
+  align-items: center;
+}
+
+.donate-text {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+
+  color: var(--primary-color);
+}
+
+.card-title {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 28px;
+  height: 52px;
+}
+
+.card-text {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.progress-bar {
+  background-color: var(--primary-color) !important;
+}
+
+.footer-card {
+  margin-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-card-donate {
+  background-color: var(--primary-color);
+  height: 30px;
+  color: var(--white-color);
+}
+
+.image-detail-donate {
+  width: 550px;
+  height: 500px;
+}
+
+.detail-donate-container {
+  width: 373px;
+}
+
+.detail-title {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+.raised-fund-text-container {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gathered-text {
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.desc-detail-text {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: justify;
+}
+
+.btn-donate {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  height: 45px;
+}
+
+.alert-container {
+  padding: 3px 39px;
+  background: rgba(0, 255, 133, 0.1);
+  border-radius: 2px;
+  margin: 0
+}
+
+.alert-text {
+  color: #00FF47;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  opacity: 1;
+  margin: 0
+}
+
+.form-input {
+  height: 50px;
+  margin-bottom: 24px;
+
+  background: rgba(188, 188, 188, 0.25);
+  border: 2px solid #BCBCBC;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.btn-form {
+  width: 412px;
+  height: 45px;
+  align-items: center;
+
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.btn-form-text {
+  font-family: Product Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  align-items: center;
+  color: var(--white-color);
+}
