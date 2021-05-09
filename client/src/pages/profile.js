@@ -1,13 +1,29 @@
+import { useEffect, useState } from "react"
 import { Container, Col, Row, Card } from "react-bootstrap"
+import jwt from 'jsonwebtoken'
+import { API } from "../config/api"
+import { convertToRupiah } from "../utils/helper"
 
-const fakeData = [
-  {
-    title: 'The Strength of a People. Power of Community',
-    date: '2021-04-11T17:00:00.000Z',
-    total: '45000'
-  }
-]
 const ProfilePage = () => {
+  const [profile, setProfile] = useState({})
+  const [donations, setDonations] = useState([])
+
+  useEffect(() => {
+    const { email, fullName } = jwt.decode(localStorage.getItem('token'))
+    setProfile({ email, fullName })
+
+    async function getMyDonations() {
+      try {
+        const resp = await API.get('/donates')
+        setDonations(resp.data.userDonates)
+      } catch(err) {
+        console.log(err)
+      }
+    }
+
+    getMyDonations()
+  }, [])
+
   return (
     <Container style={{ marginTop: '79px'}}>
       <Row>
@@ -20,15 +36,15 @@ const ProfilePage = () => {
             <Col className="d-flex flex-column justify-content-between">
               <div>
                 <p className="primary-color mb-0">Fullname</p>
-                <p>Andi</p>
+                <p>{profile.fullName}</p>
               </div>
               <div>
                 <p className="primary-color mb-0">Email</p>
-                <p>andigans@gmail.com</p>
+                <p>{profile.email}</p>
               </div>
               <div>
                 <p className="primary-color mb-0">Phone</p>
-                <p>083896833122</p>
+                <p>-</p>
               </div>
             </Col>
           </Row>
@@ -36,15 +52,15 @@ const ProfilePage = () => {
         <Col>
           <p className="detail-title">History Donation</p>
           {
-          fakeData.map(({title, date, total}) => (
-          <Card>
+          donations.map(({ id, fund, createdAt, donateAmount, status }, idx) => (
+          <Card key={idx}>
             <Card.Body>
-              <p><b>{title}</b></p>
-              <p>{new Date(date).toDateString()}</p>
+              <p><b>{fund.title}</b></p>
+              <p>{new Date(createdAt).toDateString()}</p>
               <div className="d-flex flex-row justify-content-between align-items-center">
-                <p className="primary-color mb-0">Total: Rp.{total}</p>
+                <p className="primary-color mb-0">Total: {convertToRupiah(donateAmount)}</p>
                 <div className="alert-container">
-                  <p className="alert-text">Finished</p>
+                  <p className="alert-text">{status === 'success' ? 'Finished' : 'Pending'}</p>
                 </div>
               </div>
             </Card.Body>

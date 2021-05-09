@@ -84,3 +84,28 @@ exports.updateStatusDonate = async (req, res) => {
     })
   }
 }
+
+exports.getMyDonate = async (req, res) => {
+  try {
+    const { userId } = req
+
+    const userDonates = await models.userDonate.findAll({
+      where: { userId },
+      include: {
+        model: models.fund,
+        attributes: ['title']
+      }
+    })
+
+    res.status(200).send({ 
+      status: 'success',
+      userDonates
+     })
+  } catch(err) {
+    console.log(err)
+    res.status(500).send({
+      status: 'failed',
+      message: 'server error'
+    })
+  }
+}
