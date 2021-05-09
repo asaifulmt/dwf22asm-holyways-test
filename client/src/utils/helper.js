@@ -15,14 +15,9 @@ export function convertToRupiah(angka) {
 }
 
 export function getTotal(userDonate) {
-  const total = userDonate.map((user) => {
-    if(user.status === 'success') {
-      return user.donateAmount
-    }
-    return 0
-  }).reduce((total, num) => total + num, 0)
-
-  return total
+  return userDonate
+    .map((user) => user.status === 'success' ? user.donateAmount : 0)
+    .reduce((total, num) => total + num, 0)
 }
 
 export function getProgress(userDonate, goal) {

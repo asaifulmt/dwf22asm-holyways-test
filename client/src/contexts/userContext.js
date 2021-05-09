@@ -1,9 +1,16 @@
 import { createContext, useReducer } from "react";
+import { setAuthToken } from "../config/api";
 
 export const UserContext = createContext();
 
+const token = localStorage.getItem('token')
+
 const initialState = {
-  isLogin: localStorage.getItem('token') ? true : false
+  isLogin: token ? true : false
+}
+
+if (token) {
+  setAuthToken(token)
 }
 
 const reducer = (state, action) => {

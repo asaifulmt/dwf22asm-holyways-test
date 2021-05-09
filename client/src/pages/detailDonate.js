@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Col, Container, Row, ProgressBar, Card } from "react-bootstrap"
-import { Router, useHistory, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import ModalDonate from "../components/modalDonate"
 import { API } from "../config/api"
 import { convertToRupiah, getProgress, getTotal } from "../utils/helper"
@@ -11,7 +11,6 @@ const DetailDonate = () => {
   const [fund, setFund] = useState({})
   const [isVisibleModal, setIsVisibleModal] = useState(false)
   const { id } = useParams()
-  const router = useHistory()
 
   const getFund = async () => {
     try {

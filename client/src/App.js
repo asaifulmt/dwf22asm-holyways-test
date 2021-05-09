@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+// import { useContext, useMemo } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -9,32 +9,28 @@ import NotFound from "./pages/notFound";
 import Navbar from "./components/navbar";
 import ModalLogin from "./components/modalLogin";
 import ModalRegister from "./components/modalRegister";
-import { UserContext } from "./contexts/userContext";
+// import { UserContext } from "./contexts/userContext";
 import PrivateRoute from "./components/privateRoute";
 import DetailDonate from "./pages/detailDonate";
 import ProfilePage from "./pages/profile";
 import RaiseFundPage from "./pages/raiseFund";
 import FormRaiseFundPage from "./pages/formRaiseFund";
 import ViewFund from "./pages/viewFund";
-import { setAuthToken } from "./config/api";
+// import { setAuthToken } from "./config/api";
 
 function App() {
-  const [, dispatch] = useContext(UserContext);
+  // const [, dispatch] = useContext(UserContext);
 
-  const checkUser = () => {
-    const token = localStorage.getItem('token')
-
-    if (token) {
-      setAuthToken(token)
-      dispatch({
-        type: 'LOGIN'
-      })
-    }
-  }
-
-  useEffect(() => {
-    checkUser()
-  }, [])
+  // useMemo(() => {
+  //   const token = localStorage.getItem('token')
+  
+  //   if (token) {
+  //     setAuthToken(token)
+  //     dispatch({
+  //       type: 'LOGIN'
+  //     })
+  //   }
+  // }, [dispatch])
 
   return (
     <Router>

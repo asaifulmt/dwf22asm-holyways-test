@@ -43,7 +43,7 @@ const Home = () => {
           {
             funds.map(fund => {
               return (
-                <Col md={4} className="mt-3">
+                <Col md={4} className="mt-3" key={fund.id}>
                   <Card
                     img={`http://localhost:5000/uploads/${fund.thumbnail}`}
                     title={fund.title}
