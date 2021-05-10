@@ -32,6 +32,7 @@ exports.createFund = async (req, res) => {
 
     const fund = await models.fund.create({
       ...body,
+      goal: Number(body.goal),
       thumbnail,
       userId
     })
@@ -104,6 +105,41 @@ exports.getFund = async (req, res) => {
     })
 
     res.status(200).send({ fund })
+  } catch (err) {
+    console.log(err)
+    res.status(500).send({
+      status: 'failed',
+      message: 'server error'
+    })
+  }
+}
+
+exports.getMyRaiseFunds = async (req, res) => {
+  try {
+    const { userId } = req
+    const funds = await models.fund.findAll({
+      where: {
+        userId
+      },
+      include: {
+        model: models.user,
+        as: 'usersDonate',
+        attributes: [
+          'id',
+          'fullName',
+          'email',
+          [sequelize.literal('`usersDonate->userDonate`.donateAmount'), 'donateAmount'],
+          [sequelize.literal('`usersDonate->userDonate`.status'), 'status'],
+          [sequelize.literal('`usersDonate->userDonate`.proofAttachment'), 'proofAttachment'],
+          [sequelize.literal('`usersDonate->userDonate`.createdAt'), 'donatedAt']
+        ],
+        through: {
+          model: models.userDonate,
+          attributes: []
+        }
+      }
+    })
+    res.status(200).send({ funds })
   } catch (err) {
     console.log(err)
     res.status(500).send({

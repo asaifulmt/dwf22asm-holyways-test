@@ -25,7 +25,7 @@ const DetailDonate = () => {
 
   useEffect(() => {
     getFund()
-  })
+  }, [])
 
   if (isError) {
     return <NotFound />
@@ -83,7 +83,7 @@ const DetailDonate = () => {
           }
         </div>
       </Container>
-      <ModalDonate isVisible={isVisibleModal} onHide={() => setIsVisibleModal(false)} />
+      <ModalDonate isVisible={isVisibleModal} onHide={() => setIsVisibleModal(false)} getFund={getFund} fundId={fund.id} />
     </>
   )
 }

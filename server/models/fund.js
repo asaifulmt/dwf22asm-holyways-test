@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
     thumbnail: DataTypes.STRING,
-    goal: DataTypes.INTEGER,
+    goal: DataTypes.BIGINT,
     description: DataTypes.STRING
   }, {
     sequelize,

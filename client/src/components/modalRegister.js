@@ -39,6 +39,7 @@ const ModalRegister = ({ isVisible, onHide, showModalLogin }) => {
           type: 'LOGIN',
           payload: resp.data.data.user
         })
+        setStatus({})
       }, 1000)
     } catch(err) {
       if (err.response) {

@@ -13,7 +13,7 @@ const Home = () => {
   const [funds, setFunds] = useState([])
   const [{ isLogin }] = useContext(UserContext);
   const [, dispatchModal] = useContext(ModalContext);
-  const router = useHistory();
+  const router = useHistory()
   const goToDetailPage = (id) => {
     if (isLogin) {
       router.push(`/donate/${id}`);
@@ -24,13 +24,12 @@ const Home = () => {
     }
   };
 
-  const getFunds = async () => {
-    const resp = await API.get('/funds')
-
-    setFunds(resp.data.funds)
-  }
-
   useEffect(() => {
+    const getFunds = async () => {
+      const resp = await API.get('/funds')
+      setFunds(resp.data.funds)
+    }
+
     getFunds()
   }, [])
 
