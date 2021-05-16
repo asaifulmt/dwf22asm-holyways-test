@@ -45,7 +45,7 @@ const ModalDonate = ({ isVisible, onHide, getFund, fundId }) => {
       setTimeout(() => {
         onHide()
         getFund()
-        setStatus()
+        setStatus({})
       }, 1500)
     } catch(err) {
       console.log(err)
