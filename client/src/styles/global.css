@@ -340,3 +340,10 @@ body {
   align-items: center;
   color: var(--white-color);
 }
+
+.card .btn-edit {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}

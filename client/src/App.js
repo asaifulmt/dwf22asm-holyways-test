@@ -15,6 +15,7 @@ import DetailDonate from "./pages/detailDonate";
 import ProfilePage from "./pages/profile";
 import RaiseFundPage from "./pages/raiseFund";
 import FormRaiseFundPage from "./pages/formRaiseFund";
+import EditFormRaiseFundPage from './pages/editFormFund'
 import ViewFund from "./pages/viewFund";
 // import { setAuthToken } from "./config/api";
 
@@ -64,6 +65,12 @@ function App() {
           exact
           path="/form-raise-fund"
           component={FormRaiseFundPage}  
+        />
+
+        <PrivateRoute
+          exact
+          path="/edit-raise-fund/:id"
+          component={EditFormRaiseFundPage}  
         />
 
         <Route component={NotFound} />

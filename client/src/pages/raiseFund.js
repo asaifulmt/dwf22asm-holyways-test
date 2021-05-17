@@ -14,6 +14,9 @@ const RaiseFundPage = () => {
   const goToFormRaiseFund = () => {
     router.push('/form-raise-fund')
   }
+  const goToEditFund = (fundId) => {
+    router.push(`/edit-raise-fund/${fundId}`)
+  }
 
   useEffect(() => {
     const getMyRaiseFunds = async () => {
@@ -43,6 +46,7 @@ const RaiseFundPage = () => {
                   nominal={convertToRupiah(fund.goal)}
                   buttonName="View Fund"
                   buttonOnClick={() => goToViewFund(fund.id)}
+                  btnEditOnClick={() => goToEditFund(fund.id)}
                 />
               </Col>
             )
