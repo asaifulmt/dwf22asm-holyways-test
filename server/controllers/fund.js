@@ -167,7 +167,13 @@ exports.editFund = async (req, res) => {
       })
     }
 
-    await fund.update(req.body, {
+    const data = req.body
+
+    if (req.files.thumbnail) {
+      data.thumbnail = req.files.thumbnail[0].filename
+    }
+
+    await fund.update(data, {
       where: {
         id: fund.id
       }

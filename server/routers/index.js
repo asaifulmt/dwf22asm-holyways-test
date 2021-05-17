@@ -16,7 +16,7 @@ router.get('/funds', getAllFunds)
 router.get('/fund/:id', getFund)
 router.post('/fund', auth, uploadImage, createFund)
 router.delete('/fund/:id', auth, deleteFund)
-router.patch('/fund/:id', auth, editFund)
+router.patch('/fund/:id', auth, uploadImage, editFund)
 router.patch('/fund/:fundId/:userId', auth, updateStatusDonate)
 router.get('/my-funds', auth, getMyRaiseFunds)
 
